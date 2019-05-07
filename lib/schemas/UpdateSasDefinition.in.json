@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "The SAS definition update parameters.",
+            "properties": {
+                "attributes": {
+                    "description": "The attributes of the SAS definition.",
+                    "x-ms-client-name": "SasDefinitionAttributes",
+                    "properties": {
+                        "created": {
+                            "description": "Creation time in UTC.",
+                            "format": "unixtime",
+                            "readOnly": true,
+                            "type": "integer"
+                        },
+                        "enabled": {
+                            "description": "the enabled state of the object.",
+                            "type": "boolean"
+                        },
+                        "recoveryLevel": {
+                            "description": "Reflects the deletion recovery level currently in effect for SAS definitions in the current vault. If it contains 'Purgeable' the SAS definition can be permanently deleted by a privileged user; otherwise, only the system can purge the SAS definition, at the end of the retention interval.",
+                            "enum": [
+                                "Purgeable",
+                                "Recoverable+Purgeable",
+                                "Recoverable",
+                                "Recoverable+ProtectedSubscription"
+                            ],
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "DeletionRecoveryLevel"
+                            },
+                            "nullable": false
+                        },
+                        "updated": {
+                            "description": "Last updated time in UTC.",
+                            "format": "unixtime",
+                            "readOnly": true,
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                },
+                "sasType": {
+                    "description": "The type of SAS token the SAS definition will create.",
+                    "enum": [
+                        "account",
+                        "service"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "SasTokenType"
+                    }
+                },
+                "tags": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Application specific metadata in the form of key-value pairs.",
+                    "type": "object"
+                },
+                "templateUri": {
+                    "description": "The SAS definition token template signed with an arbitrary key.  Tokens created according to the SAS definition will have the same properties as the template.",
+                    "type": "string"
+                },
+                "validityPeriod": {
+                    "description": "The validity period of SAS tokens created according to the SAS definition.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "storage_account_name": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[0-9a-zA-Z]+$"
+        },
+        "sas_definition_name": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[0-9a-zA-Z]+$"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

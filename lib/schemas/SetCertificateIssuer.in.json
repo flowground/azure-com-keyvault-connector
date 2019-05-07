@@ -1,0 +1,101 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "The certificate issuer set parameters.",
+            "properties": {
+                "attributes": {
+                    "description": "Attributes of the issuer object.",
+                    "properties": {
+                        "created": {
+                            "description": "Creation time in UTC.",
+                            "format": "unixtime",
+                            "readOnly": true,
+                            "type": "integer"
+                        },
+                        "enabled": {
+                            "description": "Determines whether the issuer is enabled.",
+                            "type": "boolean"
+                        },
+                        "updated": {
+                            "description": "Last updated time in UTC.",
+                            "format": "unixtime",
+                            "readOnly": true,
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                },
+                "credentials": {
+                    "description": "The credentials to be used for the issuer.",
+                    "properties": {
+                        "account_id": {
+                            "description": "The user name/account name/account id.",
+                            "type": "string"
+                        },
+                        "pwd": {
+                            "description": "The password/secret/account key.",
+                            "type": "string",
+                            "x-ms-client-name": "Password"
+                        }
+                    },
+                    "type": "object"
+                },
+                "org_details": {
+                    "description": "Details of the organization as provided to the issuer.",
+                    "x-ms-client-name": "OrganizationDetails",
+                    "properties": {
+                        "admin_details": {
+                            "description": "Details of the organization administrator.",
+                            "items": {
+                                "description": "Details of the organization administrator of the certificate issuer.",
+                                "properties": {
+                                    "email": {
+                                        "description": "Email address.",
+                                        "type": "string",
+                                        "x-ms-client-name": "EmailAddress"
+                                    },
+                                    "first_name": {
+                                        "description": "First name.",
+                                        "type": "string"
+                                    },
+                                    "last_name": {
+                                        "description": "Last name.",
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "description": "Phone number.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "id": {
+                            "description": "Id of the organization.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "provider": {
+                    "description": "The issuer provider.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "provider"
+            ],
+            "type": "object"
+        },
+        "issuer_name": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

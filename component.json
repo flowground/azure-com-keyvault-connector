@@ -1,0 +1,1361 @@
+{
+    "title": "KeyVaultClient",
+    "description": "The key vault client performs cryptographic key operations and vault operations against the Key Vault service.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/keyvault/7.0-preview/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://azure.local/",
+                    "{vaultBaseUrl}",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "GetCertificates": {
+            "main": "./lib/actions/GetCertificates.js",
+            "title": "List certificates in a specified key vault",
+            "description": "The GetCertificates operation returns the set of certificates resources in the specified key vault. This operation requires the certificates/list permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCertificates.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteCertificateContacts": {
+            "main": "./lib/actions/DeleteCertificateContacts.js",
+            "title": "Deletes the certificate contacts for a specified key vault.",
+            "description": "Deletes the certificate contacts for a specified key vault certificate. This operation requires the certificates/managecontacts permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteCertificateContacts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetCertificateContacts": {
+            "main": "./lib/actions/GetCertificateContacts.js",
+            "title": "Lists the certificate contacts for a specified key vault.",
+            "description": "The GetCertificateContacts operation returns the set of certificate contact resources in the specified key vault. This operation requires the certificates/managecontacts permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCertificateContacts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SetCertificateContacts": {
+            "main": "./lib/actions/SetCertificateContacts.js",
+            "title": "Sets the certificate contacts for the specified key vault.",
+            "description": "Sets the certificate contacts for the specified key vault. This operation requires the certificates/managecontacts permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SetCertificateContacts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetCertificateIssuers": {
+            "main": "./lib/actions/GetCertificateIssuers.js",
+            "title": "List certificate issuers for a specified key vault.",
+            "description": "The GetCertificateIssuers operation returns the set of certificate issuer resources in the specified key vault. This operation requires the certificates/manageissuers/getissuers permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCertificateIssuers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteCertificateIssuer": {
+            "main": "./lib/actions/DeleteCertificateIssuer.js",
+            "title": "Deletes the specified certificate issuer.",
+            "description": "The DeleteCertificateIssuer operation permanently removes the specified certificate issuer from the vault. This operation requires the certificates/manageissuers/deleteissuers permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteCertificateIssuer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetCertificateIssuer": {
+            "main": "./lib/actions/GetCertificateIssuer.js",
+            "title": "Lists the specified certificate issuer.",
+            "description": "The GetCertificateIssuer operation returns the specified certificate issuer resources in the specified key vault. This operation requires the certificates/manageissuers/getissuers permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCertificateIssuer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateCertificateIssuer": {
+            "main": "./lib/actions/UpdateCertificateIssuer.js",
+            "title": "Updates the specified certificate issuer.",
+            "description": "The UpdateCertificateIssuer operation performs an update on the specified certificate issuer entity. This operation requires the certificates/setissuers permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateCertificateIssuer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SetCertificateIssuer": {
+            "main": "./lib/actions/SetCertificateIssuer.js",
+            "title": "Sets the specified certificate issuer.",
+            "description": "The SetCertificateIssuer operation adds or updates the specified certificate issuer. This operation requires the certificates/setissuers permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SetCertificateIssuer.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RestoreCertificate": {
+            "main": "./lib/actions/RestoreCertificate.js",
+            "title": "Restores a backed up certificate to a vault.",
+            "description": "Restores a backed up certificate, and all its versions, to a vault. This operation requires the certificates/restore permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RestoreCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteCertificate": {
+            "main": "./lib/actions/DeleteCertificate.js",
+            "title": "Deletes a certificate from a specified key vault.",
+            "description": "Deletes all versions of a certificate object along with its associated policy. Delete certificate cannot be used to remove individual versions of a certificate object. This operation requires the certificates/delete permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BackupCertificate": {
+            "main": "./lib/actions/BackupCertificate.js",
+            "title": "Backs up the specified certificate.",
+            "description": "Requests that a backup of the specified certificate be downloaded to the client. All versions of the certificate will be downloaded. This operation requires the certificates/backup permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BackupCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateCertificate": {
+            "main": "./lib/actions/CreateCertificate.js",
+            "title": "Creates a new certificate.",
+            "description": "If this is the first version, the certificate resource is created. This operation requires the certificates/create permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ImportCertificate": {
+            "main": "./lib/actions/ImportCertificate.js",
+            "title": "Imports a certificate into a specified key vault.",
+            "description": "Imports an existing valid certificate, containing a private key, into Azure Key Vault. The certificate to be imported can be in either PFX or PEM format. If the certificate is in PEM format the PEM file must contain the key as well as x509 certificates. This operation requires the certificates/import permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ImportCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteCertificateOperation": {
+            "main": "./lib/actions/DeleteCertificateOperation.js",
+            "title": "Deletes the creation operation for a specific certificate.",
+            "description": "Deletes the creation operation for a specified certificate that is in the process of being created. The certificate is no longer created. This operation requires the certificates/update permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteCertificateOperation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetCertificateOperation": {
+            "main": "./lib/actions/GetCertificateOperation.js",
+            "title": "Gets the creation operation of a certificate.",
+            "description": "Gets the creation operation associated with a specified certificate. This operation requires the certificates/get permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCertificateOperation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateCertificateOperation": {
+            "main": "./lib/actions/UpdateCertificateOperation.js",
+            "title": "Updates a certificate operation.",
+            "description": "Updates a certificate creation operation that is already in progress. This operation requires the certificates/update permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateCertificateOperation.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "MergeCertificate": {
+            "main": "./lib/actions/MergeCertificate.js",
+            "title": "Merges a certificate or a certificate chain with a key pair existing on the server.",
+            "description": "The MergeCertificate operation performs the merging of a certificate or certificate chain with a key pair currently available in the service. This operation requires the certificates/create permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/MergeCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetCertificatePolicy": {
+            "main": "./lib/actions/GetCertificatePolicy.js",
+            "title": "Lists the policy for a certificate.",
+            "description": "The GetCertificatePolicy operation returns the specified certificate policy resources in the specified key vault. This operation requires the certificates/get permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCertificatePolicy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateCertificatePolicy": {
+            "main": "./lib/actions/UpdateCertificatePolicy.js",
+            "title": "Updates the policy for a certificate.",
+            "description": "Set specified members in the certificate policy. Leave others as null. This operation requires the certificates/update permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateCertificatePolicy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetCertificateVersions": {
+            "main": "./lib/actions/GetCertificateVersions.js",
+            "title": "List the versions of a certificate.",
+            "description": "The GetCertificateVersions operation returns the versions of a certificate in the specified key vault. This operation requires the certificates/list permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCertificateVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetCertificate": {
+            "main": "./lib/actions/GetCertificate.js",
+            "title": "Gets information about a certificate.",
+            "description": "Gets information about a specific certificate. This operation requires the certificates/get permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateCertificate": {
+            "main": "./lib/actions/UpdateCertificate.js",
+            "title": "Updates the specified attributes associated with the given certificate.",
+            "description": "The UpdateCertificate operation applies the specified update on the given certificate; the only elements updated are the certificate's attributes. This operation requires the certificates/update permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeletedCertificates": {
+            "main": "./lib/actions/GetDeletedCertificates.js",
+            "title": "Lists the deleted certificates in the specified vault currently available for recovery.",
+            "description": "The GetDeletedCertificates operation retrieves the certificates in the current vault which are in a deleted state and ready for recovery or purging. This operation includes deletion-specific information. This operation requires the certificates/get/list permission. This operation can only be enabled on soft-delete enabled vaults.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeletedCertificates.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PurgeDeletedCertificate": {
+            "main": "./lib/actions/PurgeDeletedCertificate.js",
+            "title": "Permanently deletes the specified deleted certificate.",
+            "description": "The PurgeDeletedCertificate operation performs an irreversible deletion of the specified certificate, without possibility for recovery. The operation is not available if the recovery level does not specify 'Purgeable'. This operation requires the certificate/purge permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PurgeDeletedCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeletedCertificate": {
+            "main": "./lib/actions/GetDeletedCertificate.js",
+            "title": "Retrieves information about the specified deleted certificate.",
+            "description": "The GetDeletedCertificate operation retrieves the deleted certificate information plus its attributes, such as retention interval, scheduled permanent deletion and the current deletion recovery level. This operation requires the certificates/get permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeletedCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RecoverDeletedCertificate": {
+            "main": "./lib/actions/RecoverDeletedCertificate.js",
+            "title": "Recovers the deleted certificate back to its current version under /certificates.",
+            "description": "The RecoverDeletedCertificate operation performs the reversal of the Delete operation. The operation is applicable in vaults enabled for soft-delete, and must be issued during the retention interval (available in the deleted certificate's attributes). This operation requires the certificates/recover permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RecoverDeletedCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeletedKeys": {
+            "main": "./lib/actions/GetDeletedKeys.js",
+            "title": "Lists the deleted keys in the specified vault.",
+            "description": "Retrieves a list of the keys in the Key Vault as JSON Web Key structures that contain the public part of a deleted key. This operation includes deletion-specific information. The Get Deleted Keys operation is applicable for vaults enabled for soft-delete. While the operation can be invoked on any vault, it will return an error if invoked on a non soft-delete enabled vault. This operation requires the keys/list permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeletedKeys.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PurgeDeletedKey": {
+            "main": "./lib/actions/PurgeDeletedKey.js",
+            "title": "Permanently deletes the specified key.",
+            "description": "The Purge Deleted Key operation is applicable for soft-delete enabled vaults. While the operation can be invoked on any vault, it will return an error if invoked on a non soft-delete enabled vault. This operation requires the keys/purge permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PurgeDeletedKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeletedKey": {
+            "main": "./lib/actions/GetDeletedKey.js",
+            "title": "Gets the public part of a deleted key.",
+            "description": "The Get Deleted Key operation is applicable for soft-delete enabled vaults. While the operation can be invoked on any vault, it will return an error if invoked on a non soft-delete enabled vault. This operation requires the keys/get permission. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeletedKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RecoverDeletedKey": {
+            "main": "./lib/actions/RecoverDeletedKey.js",
+            "title": "Recovers the deleted key to its latest version.",
+            "description": "The Recover Deleted Key operation is applicable for deleted keys in soft-delete enabled vaults. It recovers the deleted key back to its latest version under /keys. An attempt to recover an non-deleted key will return an error. Consider this the inverse of the delete operation on soft-delete enabled vaults. This operation requires the keys/recover permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RecoverDeletedKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeletedSecrets": {
+            "main": "./lib/actions/GetDeletedSecrets.js",
+            "title": "Lists deleted secrets for the specified vault.",
+            "description": "The Get Deleted Secrets operation returns the secrets that have been deleted for a vault enabled for soft-delete. This operation requires the secrets/list permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeletedSecrets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PurgeDeletedSecret": {
+            "main": "./lib/actions/PurgeDeletedSecret.js",
+            "title": "Permanently deletes the specified secret.",
+            "description": "The purge deleted secret operation removes the secret permanently, without the possibility of recovery. This operation can only be enabled on a soft-delete enabled vault. This operation requires the secrets/purge permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PurgeDeletedSecret.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeletedSecret": {
+            "main": "./lib/actions/GetDeletedSecret.js",
+            "title": "Gets the specified deleted secret.",
+            "description": "The Get Deleted Secret operation returns the specified deleted secret along with its attributes. This operation requires the secrets/get permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeletedSecret.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RecoverDeletedSecret": {
+            "main": "./lib/actions/RecoverDeletedSecret.js",
+            "title": "Recovers the deleted secret to the latest version.",
+            "description": "Recovers the deleted secret in the specified vault. This operation can only be performed on a soft-delete enabled vault. This operation requires the secrets/recover permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RecoverDeletedSecret.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeletedStorageAccounts": {
+            "main": "./lib/actions/GetDeletedStorageAccounts.js",
+            "title": "Lists deleted storage accounts for the specified vault.",
+            "description": "The Get Deleted Storage Accounts operation returns the storage accounts that have been deleted for a vault enabled for soft-delete. This operation requires the storage/list permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeletedStorageAccounts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PurgeDeletedStorageAccount": {
+            "main": "./lib/actions/PurgeDeletedStorageAccount.js",
+            "title": "Permanently deletes the specified storage account.",
+            "description": "The purge deleted storage account operation removes the secret permanently, without the possibility of recovery. This operation can only be performed on a soft-delete enabled vault. This operation requires the storage/purge permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PurgeDeletedStorageAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeletedStorageAccount": {
+            "main": "./lib/actions/GetDeletedStorageAccount.js",
+            "title": "Gets the specified deleted storage account.",
+            "description": "The Get Deleted Storage Account operation returns the specified deleted storage account along with its attributes. This operation requires the storage/get permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeletedStorageAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RecoverDeletedStorageAccount": {
+            "main": "./lib/actions/RecoverDeletedStorageAccount.js",
+            "title": "Recovers the deleted storage account.",
+            "description": "Recovers the deleted storage account in the specified vault. This operation can only be performed on a soft-delete enabled vault. This operation requires the storage/recover permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RecoverDeletedStorageAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeletedSasDefinitions": {
+            "main": "./lib/actions/GetDeletedSasDefinitions.js",
+            "title": "Lists deleted SAS definitions for the specified vault and storage account.",
+            "description": "The Get Deleted Sas Definitions operation returns the SAS definitions that have been deleted for a vault enabled for soft-delete. This operation requires the storage/listsas permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeletedSasDefinitions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeletedSasDefinition": {
+            "main": "./lib/actions/GetDeletedSasDefinition.js",
+            "title": "Gets the specified deleted sas definition.",
+            "description": "The Get Deleted SAS Definition operation returns the specified deleted SAS definition along with its attributes. This operation requires the storage/getsas permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeletedSasDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RecoverDeletedSasDefinition": {
+            "main": "./lib/actions/RecoverDeletedSasDefinition.js",
+            "title": "Recovers the deleted SAS definition.",
+            "description": "Recovers the deleted SAS definition for the specified storage account. This operation can only be performed on a soft-delete enabled vault. This operation requires the storage/recover permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RecoverDeletedSasDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetKeys": {
+            "main": "./lib/actions/GetKeys.js",
+            "title": "List keys in the specified vault.",
+            "description": "Retrieves a list of the keys in the Key Vault as JSON Web Key structures that contain the public part of a stored key. The LIST operation is applicable to all key types, however only the base key identifier, attributes, and tags are provided in the response. Individual versions of a key are not listed in the response. This operation requires the keys/list permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetKeys.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RestoreKey": {
+            "main": "./lib/actions/RestoreKey.js",
+            "title": "Restores a backed up key to a vault.",
+            "description": "Imports a previously backed up key into Azure Key Vault, restoring the key, its key identifier, attributes and access control policies. The RESTORE operation may be used to import a previously backed up key. Individual versions of a key cannot be restored. The key is restored in its entirety with the same key name as it had when it was backed up. If the key name is not available in the target Key Vault, the RESTORE operation will be rejected. While the key name is retained during restore, the final key identifier will change if the key is restored to a different vault. Restore will restore all versions and preserve version identifiers. The RESTORE operation is subject to security constraints: The target Key Vault must be owned by the same Microsoft Azure Subscription as the source Key Vault The user must have RESTORE permission in the target Key Vault. This operation requires the keys/restore permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RestoreKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteKey": {
+            "main": "./lib/actions/DeleteKey.js",
+            "title": "Deletes a key of any type from storage in Azure Key Vault.",
+            "description": "The delete key operation cannot be used to remove individual versions of a key. This operation removes the cryptographic material associated with the key, which means the key is not usable for Sign/Verify, Wrap/Unwrap or Encrypt/Decrypt operations. This operation requires the keys/delete permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ImportKey": {
+            "main": "./lib/actions/ImportKey.js",
+            "title": "Imports an externally created key, stores it, and returns key parameters and attributes to the client.",
+            "description": "The import key operation may be used to import any key type into an Azure Key Vault. If the named key already exists, Azure Key Vault creates a new version of the key. This operation requires the keys/import permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ImportKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BackupKey": {
+            "main": "./lib/actions/BackupKey.js",
+            "title": "Requests that a backup of the specified key be downloaded to the client.",
+            "description": "The Key Backup operation exports a key from Azure Key Vault in a protected form. Note that this operation does NOT return key material in a form that can be used outside the Azure Key Vault system, the returned key material is either protected to a Azure Key Vault HSM or to Azure Key Vault itself. The intent of this operation is to allow a client to GENERATE a key in one Azure Key Vault instance, BACKUP the key, and then RESTORE it into another Azure Key Vault instance. The BACKUP operation may be used to export, in protected form, any key type from Azure Key Vault. Individual versions of a key cannot be backed up. BACKUP / RESTORE can be performed within geographical boundaries only; meaning that a BACKUP from one geographical area cannot be restored to another geographical area. For example, a backup from the US geographical area cannot be restored in an EU geographical area. This operation requires the key/backup permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BackupKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateKey": {
+            "main": "./lib/actions/CreateKey.js",
+            "title": "Creates a new key, stores it, then returns key parameters and attributes to the client.",
+            "description": "The create key operation can be used to create any key type in Azure Key Vault. If the named key already exists, Azure Key Vault creates a new version of the key. It requires the keys/create permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetKeyVersions": {
+            "main": "./lib/actions/GetKeyVersions.js",
+            "title": "Retrieves a list of individual key versions with the same key name.",
+            "description": "The full key identifier, attributes, and tags are provided in the response. This operation requires the keys/list permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetKeyVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetKey": {
+            "main": "./lib/actions/GetKey.js",
+            "title": "Gets the public part of a stored key.",
+            "description": "The get key operation is applicable to all key types. If the requested key is symmetric, then no key material is released in the response. This operation requires the keys/get permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateKey": {
+            "main": "./lib/actions/UpdateKey.js",
+            "title": "The update key operation changes specified attributes of a stored key and can be applied to any key type and key version stored in Azure Key Vault.",
+            "description": "In order to perform this operation, the key must already exist in the Key Vault. Note: The cryptographic material of a key itself cannot be changed. This operation requires the keys/update permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "decrypt": {
+            "main": "./lib/actions/decrypt.js",
+            "title": "Decrypts a single block of encrypted data.",
+            "description": "The DECRYPT operation decrypts a well-formed block of ciphertext using the target encryption key and specified algorithm. This operation is the reverse of the ENCRYPT operation; only a single block of data may be decrypted, the size of this block is dependent on the target key and the algorithm to be used. The DECRYPT operation applies to asymmetric and symmetric keys stored in Azure Key Vault since it uses the private portion of the key. This operation requires the keys/decrypt permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/decrypt.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "encrypt": {
+            "main": "./lib/actions/encrypt.js",
+            "title": "Encrypts an arbitrary sequence of bytes using an encryption key that is stored in a key vault.",
+            "description": "The ENCRYPT operation encrypts an arbitrary sequence of bytes using an encryption key that is stored in Azure Key Vault. Note that the ENCRYPT operation only supports a single block of data, the size of which is dependent on the target key and the encryption algorithm to be used. The ENCRYPT operation is only strictly necessary for symmetric keys stored in Azure Key Vault since protection with an asymmetric key can be performed using public portion of the key. This operation is supported for asymmetric keys as a convenience for callers that have a key-reference but do not have access to the public key material. This operation requires the keys/encrypt permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/encrypt.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "sign": {
+            "main": "./lib/actions/sign.js",
+            "title": "Creates a signature from a digest using the specified key.",
+            "description": "The SIGN operation is applicable to asymmetric and symmetric keys stored in Azure Key Vault since this operation uses the private portion of the key. This operation requires the keys/sign permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/sign.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "unwrapKey": {
+            "main": "./lib/actions/unwrapKey.js",
+            "title": "Unwraps a symmetric key using the specified key that was initially used for wrapping that key.",
+            "description": "The UNWRAP operation supports decryption of a symmetric key using the target key encryption key. This operation is the reverse of the WRAP operation. The UNWRAP operation applies to asymmetric and symmetric keys stored in Azure Key Vault since it uses the private portion of the key. This operation requires the keys/unwrapKey permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/unwrapKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "verify": {
+            "main": "./lib/actions/verify.js",
+            "title": "Verifies a signature using a specified key.",
+            "description": "The VERIFY operation is applicable to symmetric keys stored in Azure Key Vault. VERIFY is not strictly necessary for asymmetric keys stored in Azure Key Vault since signature verification can be performed using the public portion of the key but this operation is supported as a convenience for callers that only have a key-reference and not the public portion of the key. This operation requires the keys/verify permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/verify.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "wrapKey": {
+            "main": "./lib/actions/wrapKey.js",
+            "title": "Wraps a symmetric key using a specified key.",
+            "description": "The WRAP operation supports encryption of a symmetric key using a key encryption key that has previously been stored in an Azure Key Vault. The WRAP operation is only strictly necessary for symmetric keys stored in Azure Key Vault since protection with an asymmetric key can be performed using the public portion of the key. This operation is supported for asymmetric keys as a convenience for callers that have a key-reference but do not have access to the public key material. This operation requires the keys/wrapKey permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/wrapKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetSecrets": {
+            "main": "./lib/actions/GetSecrets.js",
+            "title": "List secrets in a specified key vault.",
+            "description": "The Get Secrets operation is applicable to the entire vault. However, only the base secret identifier and its attributes are provided in the response. Individual secret versions are not listed in the response. This operation requires the secrets/list permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetSecrets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RestoreSecret": {
+            "main": "./lib/actions/RestoreSecret.js",
+            "title": "Restores a backed up secret to a vault.",
+            "description": "Restores a backed up secret, and all its versions, to a vault. This operation requires the secrets/restore permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RestoreSecret.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteSecret": {
+            "main": "./lib/actions/DeleteSecret.js",
+            "title": "Deletes a secret from a specified key vault.",
+            "description": "The DELETE operation applies to any secret stored in Azure Key Vault. DELETE cannot be applied to an individual version of a secret. This operation requires the secrets/delete permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteSecret.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SetSecret": {
+            "main": "./lib/actions/SetSecret.js",
+            "title": "Sets a secret in a specified key vault.",
+            "description": " The SET operation adds a secret to the Azure Key Vault. If the named secret already exists, Azure Key Vault creates a new version of that secret. This operation requires the secrets/set permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SetSecret.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BackupSecret": {
+            "main": "./lib/actions/BackupSecret.js",
+            "title": "Backs up the specified secret.",
+            "description": "Requests that a backup of the specified secret be downloaded to the client. All versions of the secret will be downloaded. This operation requires the secrets/backup permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BackupSecret.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetSecretVersions": {
+            "main": "./lib/actions/GetSecretVersions.js",
+            "title": "List all versions of the specified secret.",
+            "description": "The full secret identifier and attributes are provided in the response. No values are returned for the secrets. This operations requires the secrets/list permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetSecretVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetSecret": {
+            "main": "./lib/actions/GetSecret.js",
+            "title": "Get a specified secret from a given key vault.",
+            "description": "The GET operation is applicable to any secret stored in Azure Key Vault. This operation requires the secrets/get permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetSecret.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateSecret": {
+            "main": "./lib/actions/UpdateSecret.js",
+            "title": "Updates the attributes associated with a specified secret in a given key vault.",
+            "description": "The UPDATE operation changes specified attributes of an existing stored secret. Attributes that are not specified in the request are left unchanged. The value of a secret itself cannot be changed. This operation requires the secrets/set permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateSecret.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetStorageAccounts": {
+            "main": "./lib/actions/GetStorageAccounts.js",
+            "title": "List storage accounts managed by the specified key vault. This operation requires the storage/list permission.",
+            "description": "List storage accounts managed by the specified key vault. This operation requires the storage/list permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetStorageAccounts.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RestoreStorageAccount": {
+            "main": "./lib/actions/RestoreStorageAccount.js",
+            "title": "Restores a backed up storage account to a vault.",
+            "description": "Restores a backed up storage account to a vault. This operation requires the storage/restore permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RestoreStorageAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteStorageAccount": {
+            "main": "./lib/actions/DeleteStorageAccount.js",
+            "title": "Deletes a storage account. This operation requires the storage/delete permission.",
+            "description": "Deletes a storage account. This operation requires the storage/delete permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteStorageAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetStorageAccount": {
+            "main": "./lib/actions/GetStorageAccount.js",
+            "title": "Gets information about a specified storage account. This operation requires the storage/get permission.",
+            "description": "Gets information about a specified storage account. This operation requires the storage/get permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetStorageAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateStorageAccount": {
+            "main": "./lib/actions/UpdateStorageAccount.js",
+            "title": "Updates the specified attributes associated with the given storage account. This operation requires the storage/set/update permission.",
+            "description": "Updates the specified attributes associated with the given storage account. This operation requires the storage/set/update permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateStorageAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SetStorageAccount": {
+            "main": "./lib/actions/SetStorageAccount.js",
+            "title": "Creates or updates a new storage account. This operation requires the storage/set permission.",
+            "description": "Creates or updates a new storage account. This operation requires the storage/set permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SetStorageAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "BackupStorageAccount": {
+            "main": "./lib/actions/BackupStorageAccount.js",
+            "title": "Backs up the specified storage account.",
+            "description": "Requests that a backup of the specified storage account be downloaded to the client. This operation requires the storage/backup permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/BackupStorageAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RegenerateStorageAccountKey": {
+            "main": "./lib/actions/RegenerateStorageAccountKey.js",
+            "title": "Regenerates the specified key value for the given storage account. This operation requires the storage/regeneratekey permission.",
+            "description": "Regenerates the specified key value for the given storage account. This operation requires the storage/regeneratekey permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RegenerateStorageAccountKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetSasDefinitions": {
+            "main": "./lib/actions/GetSasDefinitions.js",
+            "title": "List storage SAS definitions for the given storage account. This operation requires the storage/listsas permission.",
+            "description": "List storage SAS definitions for the given storage account. This operation requires the storage/listsas permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetSasDefinitions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteSasDefinition": {
+            "main": "./lib/actions/DeleteSasDefinition.js",
+            "title": "Deletes a SAS definition from a specified storage account. This operation requires the storage/deletesas permission.",
+            "description": "Deletes a SAS definition from a specified storage account. This operation requires the storage/deletesas permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteSasDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetSasDefinition": {
+            "main": "./lib/actions/GetSasDefinition.js",
+            "title": "Gets information about a SAS definition for the specified storage account. This operation requires the storage/getsas permission.",
+            "description": "Gets information about a SAS definition for the specified storage account. This operation requires the storage/getsas permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetSasDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateSasDefinition": {
+            "main": "./lib/actions/UpdateSasDefinition.js",
+            "title": "Updates the specified attributes associated with the given SAS definition. This operation requires the storage/setsas permission.",
+            "description": "Updates the specified attributes associated with the given SAS definition. This operation requires the storage/setsas permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateSasDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SetSasDefinition": {
+            "main": "./lib/actions/SetSasDefinition.js",
+            "title": "Creates or updates a new SAS definition for the specified storage account. This operation requires the storage/setsas permission.",
+            "description": "Creates or updates a new SAS definition for the specified storage account. This operation requires the storage/setsas permission.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SetSasDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

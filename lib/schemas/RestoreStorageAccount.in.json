@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "The secret restore parameters.",
+            "properties": {
+                "value": {
+                    "description": "The backup blob associated with a storage account.",
+                    "format": "base64url",
+                    "type": "string",
+                    "x-ms-client-name": "storageBundleBackup"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

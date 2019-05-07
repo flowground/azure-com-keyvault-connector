@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "The certificate restore parameters.",
+            "properties": {
+                "value": {
+                    "description": "The backup blob associated with a certificate bundle.",
+                    "format": "base64url",
+                    "type": "string",
+                    "x-ms-client-name": "certificateBundleBackup"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

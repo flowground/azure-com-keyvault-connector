@@ -1,0 +1,360 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "The certificate create parameters.",
+            "properties": {
+                "attributes": {
+                    "description": "The attributes of the certificate (optional).",
+                    "x-ms-client-name": "CertificateAttributes",
+                    "allOf": [
+                        {
+                            "description": "The object attributes managed by the KeyVault service.",
+                            "properties": {
+                                "created": {
+                                    "description": "Creation time in UTC.",
+                                    "format": "unixtime",
+                                    "readOnly": true,
+                                    "type": "integer"
+                                },
+                                "enabled": {
+                                    "description": "Determines whether the object is enabled.",
+                                    "type": "boolean"
+                                },
+                                "exp": {
+                                    "description": "Expiry date in UTC.",
+                                    "format": "unixtime",
+                                    "type": "integer",
+                                    "x-ms-client-name": "Expires"
+                                },
+                                "nbf": {
+                                    "description": "Not before date in UTC.",
+                                    "format": "unixtime",
+                                    "type": "integer",
+                                    "x-ms-client-name": "NotBefore"
+                                },
+                                "updated": {
+                                    "description": "Last updated time in UTC.",
+                                    "format": "unixtime",
+                                    "readOnly": true,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    ],
+                    "properties": {
+                        "recoveryLevel": {
+                            "description": "Reflects the deletion recovery level currently in effect for certificates in the current vault. If it contains 'Purgeable', the certificate can be permanently deleted by a privileged user; otherwise, only the system can purge the certificate, at the end of the retention interval.",
+                            "enum": [
+                                "Purgeable",
+                                "Recoverable+Purgeable",
+                                "Recoverable",
+                                "Recoverable+ProtectedSubscription"
+                            ],
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "DeletionRecoveryLevel"
+                            },
+                            "nullable": false
+                        }
+                    },
+                    "type": "object"
+                },
+                "policy": {
+                    "description": "The management policy for the certificate.",
+                    "x-ms-client-name": "CertificatePolicy",
+                    "properties": {
+                        "attributes": {
+                            "description": "The certificate attributes.",
+                            "allOf": [
+                                {
+                                    "description": "The object attributes managed by the KeyVault service.",
+                                    "properties": {
+                                        "created": {
+                                            "description": "Creation time in UTC.",
+                                            "format": "unixtime",
+                                            "readOnly": true,
+                                            "type": "integer"
+                                        },
+                                        "enabled": {
+                                            "description": "Determines whether the object is enabled.",
+                                            "type": "boolean"
+                                        },
+                                        "exp": {
+                                            "description": "Expiry date in UTC.",
+                                            "format": "unixtime",
+                                            "type": "integer",
+                                            "x-ms-client-name": "Expires"
+                                        },
+                                        "nbf": {
+                                            "description": "Not before date in UTC.",
+                                            "format": "unixtime",
+                                            "type": "integer",
+                                            "x-ms-client-name": "NotBefore"
+                                        },
+                                        "updated": {
+                                            "description": "Last updated time in UTC.",
+                                            "format": "unixtime",
+                                            "readOnly": true,
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            ],
+                            "properties": {
+                                "recoveryLevel": {
+                                    "description": "Reflects the deletion recovery level currently in effect for certificates in the current vault. If it contains 'Purgeable', the certificate can be permanently deleted by a privileged user; otherwise, only the system can purge the certificate, at the end of the retention interval.",
+                                    "enum": [
+                                        "Purgeable",
+                                        "Recoverable+Purgeable",
+                                        "Recoverable",
+                                        "Recoverable+ProtectedSubscription"
+                                    ],
+                                    "readOnly": true,
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "DeletionRecoveryLevel"
+                                    },
+                                    "nullable": false
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "id": {
+                            "description": "The certificate id.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "issuer": {
+                            "description": "Parameters for the issuer of the X509 component of a certificate.",
+                            "x-ms-client-name": "IssuerParameters",
+                            "properties": {
+                                "cert_transparency": {
+                                    "description": "Indicates if the certificates generated under this policy should be published to certificate transparency logs.",
+                                    "type": "boolean",
+                                    "x-ms-client-name": "CertificateTransparency"
+                                },
+                                "cty": {
+                                    "description": "Type of certificate to be requested from the issuer provider.",
+                                    "type": "string",
+                                    "x-ms-client-name": "CertificateType"
+                                },
+                                "name": {
+                                    "description": "Name of the referenced issuer object or reserved names; for example, 'Self' or 'Unknown'.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "key_props": {
+                            "description": "Properties of the key backing a certificate.",
+                            "x-ms-client-name": "KeyProperties",
+                            "properties": {
+                                "crv": {
+                                    "description": "Elliptic curve name. For valid values, see JsonWebKeyCurveName.",
+                                    "enum": [
+                                        "P-256",
+                                        "P-384",
+                                        "P-521",
+                                        "P-256K"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-client-name": "curve",
+                                    "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "JsonWebKeyCurveName"
+                                    }
+                                },
+                                "exportable": {
+                                    "description": "Indicates if the private key can be exported.",
+                                    "type": "boolean"
+                                },
+                                "key_size": {
+                                    "description": "The key size in bits. For example: 2048, 3072, or 4096 for RSA.",
+                                    "format": "int32",
+                                    "type": "integer"
+                                },
+                                "kty": {
+                                    "description": "The type of key pair to be used for the certificate.",
+                                    "enum": [
+                                        "EC",
+                                        "EC-HSM",
+                                        "RSA",
+                                        "RSA-HSM",
+                                        "oct"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-client-name": "keyType",
+                                    "x-ms-enum": {
+                                        "modelAsString": true,
+                                        "name": "JsonWebKeyType"
+                                    }
+                                },
+                                "reuse_key": {
+                                    "description": "Indicates if the same key pair will be used on certificate renewal.",
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "lifetime_actions": {
+                            "description": "Actions that will be performed by Key Vault over the lifetime of a certificate.",
+                            "items": {
+                                "description": "Action and its trigger that will be performed by Key Vault over the lifetime of a certificate.",
+                                "properties": {
+                                    "action": {
+                                        "description": "The action that will be executed.",
+                                        "properties": {
+                                            "action_type": {
+                                                "description": "The type of the action.",
+                                                "enum": [
+                                                    "EmailContacts",
+                                                    "AutoRenew"
+                                                ],
+                                                "type": "string",
+                                                "x-ms-enum": {
+                                                    "modelAsString": false,
+                                                    "name": "ActionType"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "trigger": {
+                                        "description": "The condition that will execute the action.",
+                                        "properties": {
+                                            "days_before_expiry": {
+                                                "description": "Days before expiry to attempt renewal. Value should be between 1 and validity_in_months multiplied by 27. If validity_in_months is 36, then value should be between 1 and 972 (36 * 27).",
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "lifetime_percentage": {
+                                                "description": "Percentage of lifetime at which to trigger. Value should be between 1 and 99.",
+                                                "format": "int32",
+                                                "maximum": 99,
+                                                "minimum": 1,
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "secret_props": {
+                            "description": "Properties of the secret backing a certificate.",
+                            "x-ms-client-name": "SecretProperties",
+                            "properties": {
+                                "contentType": {
+                                    "description": "The media type (MIME type).",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "x509_props": {
+                            "description": "Properties of the X509 component of a certificate.",
+                            "x-ms-client-name": "X509CertificateProperties",
+                            "properties": {
+                                "ekus": {
+                                    "description": "The enhanced key usage.",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                },
+                                "key_usage": {
+                                    "description": "List of key usages.",
+                                    "items": {
+                                        "enum": [
+                                            "digitalSignature",
+                                            "nonRepudiation",
+                                            "keyEncipherment",
+                                            "dataEncipherment",
+                                            "keyAgreement",
+                                            "keyCertSign",
+                                            "cRLSign",
+                                            "encipherOnly",
+                                            "decipherOnly"
+                                        ],
+                                        "type": "string",
+                                        "x-ms-enum": {
+                                            "modelAsString": true,
+                                            "name": "KeyUsageType"
+                                        }
+                                    },
+                                    "type": "array"
+                                },
+                                "sans": {
+                                    "description": "The subject alternative names.",
+                                    "x-ms-client-name": "SubjectAlternativeNames",
+                                    "properties": {
+                                        "dns_names": {
+                                            "description": "Domain names.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "emails": {
+                                            "description": "Email addresses.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "upns": {
+                                            "description": "User principal names.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "subject": {
+                                    "description": "The subject name. Should be a valid X509 distinguished Name.",
+                                    "type": "string"
+                                },
+                                "validity_months": {
+                                    "description": "The duration that the certificate is valid in months.",
+                                    "format": "int32",
+                                    "minimum": 0,
+                                    "type": "integer",
+                                    "x-ms-client-name": "ValidityInMonths"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "tags": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Application specific metadata in the form of key-value pairs.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "certificate_name": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[0-9a-zA-Z-]+$"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

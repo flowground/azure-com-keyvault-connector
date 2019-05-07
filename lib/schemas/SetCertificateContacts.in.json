@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "The contacts for the vault certificates.",
+            "properties": {
+                "contacts": {
+                    "description": "The contact list for the vault certificates.",
+                    "items": {
+                        "description": "The contact information for the vault certificates.",
+                        "properties": {
+                            "email": {
+                                "description": "Email address.",
+                                "type": "string",
+                                "x-ms-client-name": "EmailAddress"
+                            },
+                            "name": {
+                                "description": "Name.",
+                                "type": "string"
+                            },
+                            "phone": {
+                                "description": "Phone number.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array",
+                    "x-ms-client-name": "ContactList"
+                },
+                "id": {
+                    "description": "Identifier for the contacts collection.",
+                    "readOnly": true,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

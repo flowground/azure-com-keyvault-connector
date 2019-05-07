@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "The key operations parameters.",
+            "properties": {
+                "alg": {
+                    "description": "algorithm identifier",
+                    "enum": [
+                        "RSA-OAEP",
+                        "RSA-OAEP-256",
+                        "RSA1_5"
+                    ],
+                    "minLength": 1,
+                    "type": "string",
+                    "x-ms-client-name": "algorithm",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "JsonWebKeyEncryptionAlgorithm"
+                    }
+                },
+                "value": {
+                    "format": "base64url",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "alg",
+                "value"
+            ],
+            "type": "object"
+        },
+        "key_name": {
+            "required": true,
+            "type": "string"
+        },
+        "key_version": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

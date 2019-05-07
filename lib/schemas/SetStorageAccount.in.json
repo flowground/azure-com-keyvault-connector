@@ -1,0 +1,87 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "The storage account create parameters.",
+            "properties": {
+                "activeKeyName": {
+                    "description": "Current active storage account key name.",
+                    "type": "string"
+                },
+                "attributes": {
+                    "description": "The attributes of the storage account.",
+                    "x-ms-client-name": "StorageAccountAttributes",
+                    "properties": {
+                        "created": {
+                            "description": "Creation time in UTC.",
+                            "format": "unixtime",
+                            "readOnly": true,
+                            "type": "integer"
+                        },
+                        "enabled": {
+                            "description": "the enabled state of the object.",
+                            "type": "boolean"
+                        },
+                        "recoveryLevel": {
+                            "description": "Reflects the deletion recovery level currently in effect for storage accounts in the current vault. If it contains 'Purgeable' the storage account can be permanently deleted by a privileged user; otherwise, only the system can purge the storage account, at the end of the retention interval.",
+                            "enum": [
+                                "Purgeable",
+                                "Recoverable+Purgeable",
+                                "Recoverable",
+                                "Recoverable+ProtectedSubscription"
+                            ],
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "DeletionRecoveryLevel"
+                            },
+                            "nullable": false
+                        },
+                        "updated": {
+                            "description": "Last updated time in UTC.",
+                            "format": "unixtime",
+                            "readOnly": true,
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                },
+                "autoRegenerateKey": {
+                    "description": "whether keyvault should manage the storage account for the user.",
+                    "type": "boolean"
+                },
+                "regenerationPeriod": {
+                    "description": "The key regeneration time duration specified in ISO-8601 format.",
+                    "type": "string"
+                },
+                "resourceId": {
+                    "description": "Storage account resource id.",
+                    "type": "string"
+                },
+                "tags": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Application specific metadata in the form of key-value pairs.",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "resourceId",
+                "activeKeyName",
+                "autoRegenerateKey"
+            ],
+            "type": "object"
+        },
+        "storage_account_name": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[0-9a-zA-Z]+$"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

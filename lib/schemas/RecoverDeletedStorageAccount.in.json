@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "storage_account_name": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[0-9a-zA-Z]+$"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "properties": {
+        "maxresults": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "maximum": 25
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

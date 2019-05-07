@@ -1,0 +1,15 @@
+{
+    "name": "azure-com-keyvault-connector",
+    "version": "7.0.0",
+    "description": "The key vault client performs cryptographic key operations and vault operations against the Key Vault service.",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}

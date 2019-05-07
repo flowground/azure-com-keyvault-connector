@@ -1,0 +1,62 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "The key verify parameters.",
+            "properties": {
+                "alg": {
+                    "description": "The signing/verification algorithm. For more information on possible algorithm types, see JsonWebKeySignatureAlgorithm.",
+                    "enum": [
+                        "PS256",
+                        "PS384",
+                        "PS512",
+                        "RS256",
+                        "RS384",
+                        "RS512",
+                        "RSNULL",
+                        "ES256",
+                        "ES384",
+                        "ES512",
+                        "ES256K"
+                    ],
+                    "minLength": 1,
+                    "type": "string",
+                    "x-ms-client-name": "algorithm",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "JsonWebKeySignatureAlgorithm"
+                    }
+                },
+                "digest": {
+                    "description": "The digest used for signing.",
+                    "format": "base64url",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "The signature to be verified.",
+                    "format": "base64url",
+                    "type": "string",
+                    "x-ms-client-name": "signature"
+                }
+            },
+            "required": [
+                "alg",
+                "digest",
+                "value"
+            ],
+            "type": "object"
+        },
+        "key_name": {
+            "required": true,
+            "type": "string"
+        },
+        "key_version": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

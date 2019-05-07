@@ -1,0 +1,144 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "The key create parameters.",
+            "properties": {
+                "attributes": {
+                    "x-ms-client-name": "keyAttributes",
+                    "allOf": [
+                        {
+                            "description": "The object attributes managed by the KeyVault service.",
+                            "properties": {
+                                "created": {
+                                    "description": "Creation time in UTC.",
+                                    "format": "unixtime",
+                                    "readOnly": true,
+                                    "type": "integer"
+                                },
+                                "enabled": {
+                                    "description": "Determines whether the object is enabled.",
+                                    "type": "boolean"
+                                },
+                                "exp": {
+                                    "description": "Expiry date in UTC.",
+                                    "format": "unixtime",
+                                    "type": "integer",
+                                    "x-ms-client-name": "Expires"
+                                },
+                                "nbf": {
+                                    "description": "Not before date in UTC.",
+                                    "format": "unixtime",
+                                    "type": "integer",
+                                    "x-ms-client-name": "NotBefore"
+                                },
+                                "updated": {
+                                    "description": "Last updated time in UTC.",
+                                    "format": "unixtime",
+                                    "readOnly": true,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    ],
+                    "description": "The attributes of a key managed by the key vault service.",
+                    "properties": {
+                        "recoveryLevel": {
+                            "description": "Reflects the deletion recovery level currently in effect for keys in the current vault. If it contains 'Purgeable' the key can be permanently deleted by a privileged user; otherwise, only the system can purge the key, at the end of the retention interval.",
+                            "enum": [
+                                "Purgeable",
+                                "Recoverable+Purgeable",
+                                "Recoverable",
+                                "Recoverable+ProtectedSubscription"
+                            ],
+                            "readOnly": true,
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "DeletionRecoveryLevel"
+                            },
+                            "nullable": false
+                        }
+                    },
+                    "type": "object"
+                },
+                "crv": {
+                    "description": "Elliptic curve name. For valid values, see JsonWebKeyCurveName.",
+                    "enum": [
+                        "P-256",
+                        "P-384",
+                        "P-521",
+                        "P-256K"
+                    ],
+                    "type": "string",
+                    "x-ms-client-name": "curve",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "JsonWebKeyCurveName"
+                    }
+                },
+                "key_ops": {
+                    "items": {
+                        "description": "JSON web key operations. For more information, see JsonWebKeyOperation.",
+                        "enum": [
+                            "encrypt",
+                            "decrypt",
+                            "sign",
+                            "verify",
+                            "wrapKey",
+                            "unwrapKey"
+                        ],
+                        "type": "string",
+                        "x-ms-enum": {
+                            "modelAsString": true,
+                            "name": "JsonWebKeyOperation"
+                        }
+                    },
+                    "type": "array"
+                },
+                "key_size": {
+                    "description": "The key size in bits. For example: 2048, 3072, or 4096 for RSA.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "kty": {
+                    "description": "The type of key to create. For valid values, see JsonWebKeyType.",
+                    "enum": [
+                        "EC",
+                        "EC-HSM",
+                        "RSA",
+                        "RSA-HSM",
+                        "oct"
+                    ],
+                    "minLength": 1,
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "JsonWebKeyType"
+                    }
+                },
+                "tags": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "Application specific metadata in the form of key-value pairs.",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "kty"
+            ],
+            "type": "object"
+        },
+        "key_name": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[0-9a-zA-Z-]+$"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "The certificate operation update parameters.",
+            "properties": {
+                "cancellation_requested": {
+                    "description": "Indicates if cancellation was requested on the certificate operation.",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "cancellation_requested"
+            ],
+            "type": "object"
+        },
+        "certificate_name": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
